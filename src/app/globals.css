@@ -42,8 +42,72 @@ body {
   color: var(--foreground);
 }
 
+.brand-logo {
+  /* Feather only the perimeter so the lettering stays sharp. */
+  mask-image: radial-gradient(ellipse closest-side, #000 84%, transparent 100%);
+}
+
+.testimonial-card { width: 86%; }
+.testimonial-gallery { scrollbar-color: #52525b #18181b; scrollbar-width: thin; }
+.gallery-control {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  background: var(--background);
+}
+.gallery-control:hover { border-color: var(--brand-red); }
+.gallery-control:focus-visible { outline: 2px solid #f87171; outline-offset: 3px; }
+.testimonial-dialog {
+  margin: auto;
+  width: min(900px, 95vw);
+  max-width: 95vw;
+  max-height: 95svh;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface);
+  color: white;
+}
+.testimonial-dialog::backdrop { background: rgb(0 0 0 / 85%); }
+body:has(.testimonial-dialog[open]) { overflow: hidden; }
+@media (min-width: 640px) { .testimonial-card { width: calc((100% - 24px) / 2); } }
+@media (min-width: 1024px) { .testimonial-card { width: calc((100% - 48px) / 3); } }
+
+.step-copy {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition: opacity 2s ease-in-out, transform 2s ease-in-out;
+}
+
+.step-photo {
+  opacity: 0;
+  transform: translate3d(-25%, 0, 0) scale(1.06);
+  transition: opacity 2s ease-in-out, transform 2s ease-in-out;
+}
+
+.step-card[data-active="true"] .step-copy {
+  opacity: 0;
+  transform: translate3d(110%, 0, 0);
+}
+
+.step-card[data-active="true"] .step-photo {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .step-card:hover .step-copy { opacity: 0; transform: translate3d(110%, 0, 0); }
+  .step-card:hover .step-photo { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
+  html { scroll-behavior: auto; }
+  .step-card .step-copy,
+  .step-card .step-photo { transition: opacity 2s ease-in-out; transform: none; }
 }

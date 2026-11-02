@@ -3,6 +3,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, MessageCircle, X } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 import { navigationLinks, siteInfo } from "@/data/site-content";
@@ -50,7 +51,7 @@ export default function SmartHeader() {
           href="/"
           onClick={closeMenu}
         >
-          AC<span className="text-brand-red">Team</span>
+          <Image src="/images/brand/acteam-dark.webp" alt="Aleff Cesar Team" width={68} height={68} className="brand-logo h-[68px] w-[68px] object-contain" />
         </Link>
 
         <nav aria-label="Navegação principal" className="hidden items-center gap-7 lg:flex">

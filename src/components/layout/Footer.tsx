@@ -1,4 +1,5 @@
 import { MessageCircle } from "lucide-react";
+import Image from "next/image";
 
 import { navigationLinks, siteInfo } from "@/data/site-content";
 
@@ -7,7 +8,9 @@ export default function Footer() {
     <footer className="border-t border-border bg-surface">
       <div className="mx-auto flex max-w-7xl flex-col gap-8 px-5 py-10 sm:px-8 lg:flex-row lg:items-center lg:justify-between lg:px-10">
         <div>
-          <a className="text-2xl font-black tracking-[-0.08em] text-white" href="#inicio">AC<span className="text-brand-red">Team</span></a>
+          <a className="inline-block rounded focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-red" href="#inicio" aria-label="ACTeam - início">
+            <Image src="/images/brand/acteam-dark.webp" alt="Aleff Cesar Team" width={112} height={112} className="brand-logo h-28 w-28 object-contain" />
+          </a>
           <p className="mt-3 max-w-sm text-sm leading-6 text-muted">Treinamento de força e nutrição para uma evolução com estratégia e consistência.</p>
         </div>
         <nav aria-label="Navegação do rodapé" className="flex flex-wrap gap-x-6 gap-y-3 text-sm text-zinc-400">{navigationLinks.map((link) => <a className="transition-colors hover:text-white" href={link.href} key={link.href}>{link.label}</a>)}</nav>
