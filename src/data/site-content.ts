@@ -32,7 +32,7 @@ export const siteInfo: SiteMetaInfo = {
 export const navigationLinks: NavLinkItem[] = [
   { label: "Sobre", href: "#sobre" },
   { label: "Como funciona", href: "#como-funciona" },
-  { label: "Resultados", href: "#resultados" },
+  { label: "Depoimentos", href: "#resultados" },
   { label: "Planos", href: "#planos" },
   { label: "Contato", href: "#contato" },
 ];
